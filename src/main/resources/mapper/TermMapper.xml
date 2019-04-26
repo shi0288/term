@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mcp.term.mapper.TermMapper">
+
+    <resultMap id="BaseResultMap" type="com.mcp.term.model.Term">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="game" jdbcType="VARCHAR" property="game"/>
+        <result column="term_code" jdbcType="VARCHAR" property="termCode"/>
+        <result column="win_number" jdbcType="VARCHAR" property="winNumber"/>
+    </resultMap>
+
+
+    <select id="getNoneWinNumber" resultMap="BaseResultMap">
+        SELECT * from term
+        WHERE
+        win_number ='' and status=2
+        and game=#{game}
+        and term_code like '${day}%'
+
+    </select>
+
+
+</mapper>

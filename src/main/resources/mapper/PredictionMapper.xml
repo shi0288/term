@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mcp.term.mapper.PredictionMapper">
+
+    <resultMap id="BaseResultMap" type="com.mcp.term.model.Prediction">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="game" jdbcType="VARCHAR" property="game"/>
+        <result column="term" jdbcType="VARCHAR" property="term"/>
+        <result column="data" jdbcType="VARCHAR" property="data"/>
+        <result column="create_at" jdbcType="TIMESTAMP" property="createAt"/>
+        <result column="update_at" jdbcType="TIMESTAMP" property="updateAt"/>
+    </resultMap>
+
+
+    <select id="getAll" resultMap="BaseResultMap">
+        SELECT * from prediction
+        WHERE 1=1
+        <if test="game != null and game != ''">
+            and  game = #{game}
+        </if>
+        <if test="day != null and day != ''">
+            and create_at <![CDATA[ >=  ]]> unix_timestamp('${day} 00:00:00')
+            and create_at <![CDATA[ <=  ]]> unix_timestamp('${day} 23:59:59')
+        </if>
+        order by term desc
+    </select>
+
+
+</mapper>
