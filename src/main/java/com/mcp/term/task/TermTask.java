@@ -24,27 +24,27 @@ public class TermTask {
     @Autowired
     private OnlineService onlineService;
 
-    /**
-     * 获取时时彩预测
-     */
-    @Scheduled(fixedDelay = 180000)// 180秒执行一次
-    public void updateChongqi() {
-        try {
-            qiaoService.updatePrediction(Cons.Game.CQSSC);
-        } catch (Exception e) {
-        }
-    }
-
-    /**
-     * 获取时时彩开奖结果
-     */
-    @Scheduled(fixedDelay = 600000)// 600秒执行一次
-    public void updatePrizeChongqi() {
-        try {
-            sourceService.updateCQSSCPrize(1);
-        } catch (Exception e) {
-        }
-    }
+//    /**
+//     * 获取时时彩预测
+//     */
+//    @Scheduled(fixedDelay = 180000)// 180秒执行一次
+//    public void updateChongqi() {
+//        try {
+//            qiaoService.updatePrediction(Cons.Game.CQSSC);
+//        } catch (Exception e) {
+//        }
+//    }
+//
+//    /**
+//     * 获取时时彩开奖结果
+//     */
+//    @Scheduled(fixedDelay = 600000)// 600秒执行一次
+//    public void updatePrizeChongqi() {
+//        try {
+//            sourceService.updateCQSSCPrize(1);
+//        } catch (Exception e) {
+//        }
+//    }
 
     /**
      * 获取分分彩预测

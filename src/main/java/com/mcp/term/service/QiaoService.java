@@ -167,7 +167,7 @@ public class QiaoService {
                     //如果当前秒数大于30 不再获取
                     Calendar c = Calendar.getInstance();
                     int second = c.get(Calendar.SECOND);
-                    if (second > 30) {
+                    if (second > 50) {
                         return;
                     }
                 }
